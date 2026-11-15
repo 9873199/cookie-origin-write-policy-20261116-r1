@@ -1,0 +1,278 @@
+{
+  "created": "2026-11-16T03:13:25+08:00",
+  "reviewed": true,
+  "reviewer": "Codex primary agent, AI-assisted",
+  "uid": 11565,
+  "frozen_commit": "c56d2a77355d3c12cbf27f9e3cf05e103f2375e1",
+  "native_trajectory_sha256": "dff811afe54c3c3be9f3fff6079b3f6300c8be12b8bccd09052cfff643809bde",
+  "files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\freeze.json",
+      "path": "freeze.json",
+      "sha256": "b53b665d568ecb73285663e2c53f890f873405b240766c8fdeeae4a304eb5b12"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\freeze-audit.json",
+      "path": "freeze-audit.json",
+      "sha256": "15357fc5c22786ae7e838b157542d6815b900d2efc1fb96e46736a4753e17e9b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\environment-reviewed.json",
+      "path": "environment-reviewed.json",
+      "sha256": "dd02eb12a716649a48842061b716a34baf7809d1e17c5fe0b85c7892d12237ea"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\evidence-map.json",
+      "path": "evidence-map.json",
+      "sha256": "71d0bc6526b087c43bf74e99f57864bb1be1b419dbc676f4c4d724703dea9b73"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\model-final-answer.txt",
+      "path": "model-final-answer.txt",
+      "sha256": "9b7940b3fc8a1c07a18c6ef096e8554bb166f5499b65a39beafb4e2ed6385bbb"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\test-results.json",
+      "path": "test-results.json",
+      "sha256": "4c799780eaa0bc3bf69f5decdf81f240fe48c97e848a949e59385586f21e525b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\evaluation-qc.json",
+      "path": "evaluation-qc.json",
+      "sha256": "bb02078de16dab35b4d799741c0ad3bd0637d132ef468bd76f72bd6706a8d87b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\actual-import.json",
+      "path": "verification/acceptance-r1/actual-import.json",
+      "sha256": "8bc29e6dcdb9d8a8fadca7478b82934d2d722022504fd705a73e1861da3f9842"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\actual-import.stderr.log",
+      "path": "verification/acceptance-r1/actual-import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\actual-import.stdout.log",
+      "path": "verification/acceptance-r1/actual-import.stdout.log",
+      "sha256": "61071b28161d711764d577e0a2c11903a280b1572ea4d6c0527ff5b5961c263b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\cookie-regression.json",
+      "path": "verification/acceptance-r1/cookie-regression.json",
+      "sha256": "a3e4cf7a66a59e9d1c00034c6fe7f47fc43b42800b8a5896eb40facd7ce0c687"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\cookie-regression.stderr.log",
+      "path": "verification/acceptance-r1/cookie-regression.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\cookie-regression.stdout.log",
+      "path": "verification/acceptance-r1/cookie-regression.stdout.log",
+      "sha256": "8d076f0fdf9e3507cb8f776f8f2f759b895577eab74d0937a800bfb96b8bb823"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\dependency-lock.json",
+      "path": "verification/acceptance-r1/dependency-lock.json",
+      "sha256": "06832806227d0e153a10b5705be83ae9abc385ccee4ac87644f0b915e328278d"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\dependency-lock.stderr.log",
+      "path": "verification/acceptance-r1/dependency-lock.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\dependency-lock.stdout.log",
+      "path": "verification/acceptance-r1/dependency-lock.stdout.log",
+      "sha256": "ecbbea142f68834beb361558b37202fcde7227b3b1d3a148bab6c9b2cedab2be"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\independent-contract.json",
+      "path": "verification/acceptance-r1/independent-contract.json",
+      "sha256": "02e2e31d7bc74e74317660c3535e3b60e47ef233344fb15ee06960571388d006"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\independent-contract.stderr.log",
+      "path": "verification/acceptance-r1/independent-contract.stderr.log",
+      "sha256": "9bb71497aaa0d7f55658053b6fe4dcac84d00caa3636f2ecdb56b43d4bee51b2"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\independent-contract.stdout.log",
+      "path": "verification/acceptance-r1/independent-contract.stdout.log",
+      "sha256": "40154b026b352d71a47de751b15a580887721a83af475a0b178642e6c9ffcaa7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\replay-proof.json",
+      "path": "verification/acceptance-r1/replay-proof.json",
+      "sha256": "67bfecb9054fb354eefc93ddc231cc19fb1487e3c5ad8a32ce710c90f9207f3c"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\reviewed-spec.json",
+      "path": "verification/acceptance-r1/reviewed-spec.json",
+      "sha256": "099d60318c667475fa28db8e93cbf1f31ce1f090dafa57947d12c3ef54b2f664"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\reviewer-intervention.json",
+      "path": "verification/acceptance-r1/reviewer-intervention.json",
+      "sha256": "a345789f47bf5c6d5b5b6f668c5c5f57e8f1333156fc71d3a77e7a280c57c5b0"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r1\\test_contract.py",
+      "path": "verification/acceptance-r1/test_contract.py",
+      "sha256": "b4eebace395a40c542a866108163d881e8420314af552a345a7584c326476a2a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\actual-import.json",
+      "path": "verification/acceptance-r2/actual-import.json",
+      "sha256": "4ab1c126b28be5adac886cce74003c86ec7d09ead2a6ae1b0dced33168f0c126"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\actual-import.stderr.log",
+      "path": "verification/acceptance-r2/actual-import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\actual-import.stdout.log",
+      "path": "verification/acceptance-r2/actual-import.stdout.log",
+      "sha256": "41d4e3be0fb8c6af59458ab77fdafbfdf6ca4d4bedc6d9e8bc9d1e250e7530b3"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\cookie-regression.json",
+      "path": "verification/acceptance-r2/cookie-regression.json",
+      "sha256": "ca4f35eb3dd3929260692710d6cdaa82d9844d29ef657e0a509ac04993bc293c"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\cookie-regression.stderr.log",
+      "path": "verification/acceptance-r2/cookie-regression.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\cookie-regression.stdout.log",
+      "path": "verification/acceptance-r2/cookie-regression.stdout.log",
+      "sha256": "586bf03def7a3024e871089bce65d134f0ab907cdf01bcf474009f0b1960390e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\demo-preflight.json",
+      "path": "verification/acceptance-r2/demo-preflight.json",
+      "sha256": "a6e70d56007b91352dd020a7ee22152d16e8e3b84ff15a16fb25ebdd49e75d03"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\demo-preflight.stderr.log",
+      "path": "verification/acceptance-r2/demo-preflight.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\demo-preflight.stdout.log",
+      "path": "verification/acceptance-r2/demo-preflight.stdout.log",
+      "sha256": "5ac0000ac88c1074e5eb9207c9bb62ca56213be87acd89d89b281cec33dae12b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\demo.py",
+      "path": "verification/acceptance-r2/demo.py",
+      "sha256": "e740d622214776edeaa51c333ad8c2c10ec28cef91ff53fa3bb6ad2d14a359d0"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\dependency-lock.json",
+      "path": "verification/acceptance-r2/dependency-lock.json",
+      "sha256": "f0a2b5cbc476efbf4996f6f88a693325f6f7f1c9a90de398b0373f8d4cfeb45f"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\dependency-lock.stderr.log",
+      "path": "verification/acceptance-r2/dependency-lock.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\dependency-lock.stdout.log",
+      "path": "verification/acceptance-r2/dependency-lock.stdout.log",
+      "sha256": "ecbbea142f68834beb361558b37202fcde7227b3b1d3a148bab6c9b2cedab2be"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\independent-contract.json",
+      "path": "verification/acceptance-r2/independent-contract.json",
+      "sha256": "e7d5689182470d27c5307551d0b644261364a5d58297ebcd9b924ea2e6386990"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\independent-contract.stderr.log",
+      "path": "verification/acceptance-r2/independent-contract.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\independent-contract.stdout.log",
+      "path": "verification/acceptance-r2/independent-contract.stdout.log",
+      "sha256": "c7ccc5e96e2077593155e1f5770334c8c10343cbf77488938ca16a7727c55b2a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\observe.py",
+      "path": "verification/acceptance-r2/observe.py",
+      "sha256": "fc27a5324a59c27eaae89099256a98551fdfa550ac79402f477b46e35993eca8"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\replay-proof.json",
+      "path": "verification/acceptance-r2/replay-proof.json",
+      "sha256": "a3f726ee47a52c20975d3b753d72c9970c90a7871ae63f54ed05c8bd1c650a15"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\reproduction-notes.md",
+      "path": "verification/acceptance-r2/reproduction-notes.md",
+      "sha256": "e16c3af9b0e60ee12ae6427f19ef8e958204348fdf167195fd812c4e480cd390"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\reviewed-spec.json",
+      "path": "verification/acceptance-r2/reviewed-spec.json",
+      "sha256": "ed125cf27b2f5b33945dd7b6d816c1811abd2a7903959bf702a3cd61f8369b0b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\stored-cookie-observation.json",
+      "path": "verification/acceptance-r2/stored-cookie-observation.json",
+      "sha256": "e3150eec2d2845a0ae225e494120326368678b7705ce9563a0fd9f3cf2c381fd"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\stored-cookie-observation.stderr.log",
+      "path": "verification/acceptance-r2/stored-cookie-observation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\stored-cookie-observation.stdout.log",
+      "path": "verification/acceptance-r2/stored-cookie-observation.stdout.log",
+      "sha256": "05679245ccdc5864a97f89085d06e4743b9c28fdf7bb5e5e03dd13e40e023667"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\test_contract.py",
+      "path": "verification/acceptance-r2/test_contract.py",
+      "sha256": "b4eebace395a40c542a866108163d881e8420314af552a345a7584c326476a2a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\recorded-runtime-r1\\actual-commands.json",
+      "path": "verification/recorded-runtime-r1/actual-commands.json",
+      "sha256": "79f09afba936de7397eb6ffe792eb96ee7d80fc21e15895bbe2d5b13e78ff952"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\recorded-runtime-r1\\actual-keystrokes.json",
+      "path": "verification/recorded-runtime-r1/actual-keystrokes.json",
+      "sha256": "6e035c58fb7b70a1532df375cface1464af62332a3ab02486c33a1a5afc62e41"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\recorded-runtime-r1\\cookies-output.log",
+      "path": "verification/recorded-runtime-r1/cookies-output.log",
+      "sha256": "5ac0000ac88c1074e5eb9207c9bb62ca56213be87acd89d89b281cec33dae12b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\recorded-runtime-r1\\recording-status.json",
+      "path": "verification/recorded-runtime-r1/recording-status.json",
+      "sha256": "b8872bddd03c830588d750bc288d3e3b29a4a76158ffa2ef49db8580596496e4"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\recorded-runtime-r1\\spec.json",
+      "path": "verification/recorded-runtime-r1/spec.json",
+      "sha256": "bcc93322858e15b56cc97159f60711872800196d7cadc5dbf67ac46cac7b2a31"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\recorded-runtime-r1\\typing-check.json",
+      "path": "verification/recorded-runtime-r1/typing-check.json",
+      "sha256": "459b0f44671d7360b202881bc553484e9d9c22345d57afa08ffb52612287bfd8"
+    }
+  ],
+  "reproduction_readme": "冻结源码未改，在acceptance-r2/replay-source实际导入HTTPX和新策略。Python版本与pip freeze见actual-import和dependency-lock原件。所选Cookie/重定向/导出/属性回归84过；独立sync/async契约36过6失败，六个失败是同一属性解析差异根因的三种表现。普通HTTP覆盖、过期删除、HTTPS更新、前缀、Host伪造、逐跳重定向及默认/手工操作分离均通过。重复Path造成sid=evil覆盖原Secure sid=good；__Host-id实际存储在/private；重复Domain使foreign=bad从attacker.co.test发到victim.co.test。stored-cookie-observation输出保存实际jar的path/domain。demo.py为评审辅助，调用真实冻结库和MockTransport，不是模型新增产物。r1误选依赖uvicorn的tests/test_api.py且禁用socket，已核PID后停止reviewer测试，退出4294967295及原件保留；r1异步测试还因Windows3.14事件循环自身AF_INET socketpair被禁止而失败。上述工具问题不扣模型分。r2不选server fixture，用--allow-hosts=127.0.0.1,::1容许事件循环内部通道并限制外部连接，所有产品请求由内存MockTransport处理。模型原轨30新测试通过，相关范围991过1跳过及52过；原轨更大套件出现的依赖、CLI版本和测试环境失败另留原件，不笼统宣称全套通过。",
+  "no_model_source_edits": true,
+  "native_trace_included": false
+}

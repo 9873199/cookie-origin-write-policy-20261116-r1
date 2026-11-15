@@ -1,0 +1,21 @@
+完成。实现了一个可选的浏览器式 cookie 安全策略 `httpx.SecureCookiePolicy`，全部测试通过（新增 30 个，相关套件 991+52 个无回归；仅存的失败为环境中缺 `chardet`/`rich` 导致的既有问题，已在干净树上验证与本次改动无关）。
+
+## 实现
+
+**新模块 `httpx/_cookie_policy.py`** — `SecureCookiePolicy(is_public_suffix=None)`:
+- **判定基于实际响应 URL**(`response.request.url`)，重定向链的最终地址和用户伪造的 `Host` 头都不参与。
+- **规范化先行**：域名小写化、尾部根点去除（`EXAMPLE.org.` ≡ `example.org`);Domain 匹配按标签边界（`sub.example.org` ✓ / `notexample.org` ✗);IP 字面量（v4/v6）只与自身精确匹配——`Domain` 属性与主机完全一致则降级为 host-only（改写 header 后入 jar)，否则整条拒绝。
+- **前缀强制**（大小写不敏感，同浏览器）:`__Secure-` 需安全 scheme + `Secure` 属性；`__Host-` 额外要求有效 `Path=/` 且**无任何 Domain 属性**（空 `Domain=` 也算出现过）。
+- **公有后缀**仅通过调用者提供的纯函数判断，库内不下载任何列表。
+- **旧 cookie 保护**：非安全来源不得写/删与已有 `Secure` cookie 重叠的条目——同名 + 域双向 domain-match + 路径双向 path-match（非三元组全等）；过期日期/`Max-Age=0` 的删除尝试同样被拦，因为都是在写入前过滤，**原值不受影响**。同时拒绝 HTTP 来源设置 `Secure` 属性。
+
+**接入点**:
+- `Cookies(cookies, policy=…)`(`_models.py`)：策略存在 `Cookies` 实例上而非 `CookieJar` 上——共享 jar 不会把策略串到别的客户端；`extract_cookies` 先经策略过滤/改写再交给 stdlib jar。手工 `set/delete/update` 不经过策略。
+- `Client`/`AsyncClient` 新增 `cookie_policy=` 参数；`client.cookies` 赋值替换 jar 时策略保留。重定向每一跳都走 `_send_single_request` → `extract_cookies`，天然按该跳 URL 判定。
+- 导出 `httpx.SecureCookiePolicy`，更新 `docs/api.md` 与 CHANGELOG。
+
+## 测试（`tests/client/test_cookie_policy.py` 21 个集成 + `tests/models/test_cookie_policy.py` 9 个单元）
+
+全部用 `MockTransport` 返回连续 `Set-Cookie`，并以**下一次请求实际发出的 Cookie 头**断言：HTTP 覆盖/过期删除 Secure cookie 被拒、HTTPS 合法更新与过期清理、同名不同 path、父子域双向覆盖、`__Host-`/`__Secure-` 混淆（含空 Domain、缺 Secure、非根路径、HTTP 来源）、伪造 Host 头、重定向逐跳判定（含 https→http→https 链）、公有后缀、标签边界、IP host-only、两客户端并用与共享 jar 不泄漏策略、替换 `client.cookies` 策略保留、无策略时旧行为不变、AsyncClient。
+
+**顺带发现**:stdlib `CookieJar` 对 IP 主机的 Domain 匹配是字符串后缀匹配，`"127.0.0.1".endswith(".0.0.1")` 为真会错误接受 `Domain=0.0.1`——策略层在 IP 场景下拒绝或剥离 Domain 属性，不会把这类 header 原样透传给 stdlib。

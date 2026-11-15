@@ -1,0 +1,25 @@
+
+Ordinary HTTP overwrite attempt
+  https://app.site.test/private
+  sent Cookie: (empty)
+  http://app.site.test/private
+  sent Cookie: (empty)
+  https://app.site.test/private/x
+  sent Cookie: sid=good
+  secure value preserved: True
+
+Two Path attributes in one HTTP response cookie
+  https://app.site.test/private
+  sent Cookie: (empty)
+  http://app.site.test/private
+  sent Cookie: (empty)
+  https://app.site.test/private/x
+  sent Cookie: sid=evil
+  secure value preserved: False
+
+Two Domain attributes; inspect a sibling request
+  https://attacker.co.test/
+  sent Cookie: (empty)
+  https://victim.co.test/
+  sent Cookie: foreign=bad
+  sibling request contains foreign cookie: True

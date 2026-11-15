@@ -1,0 +1,21 @@
+{
+  "native_model_tests": {
+    "new": 30,
+    "selected_regression": 991,
+    "selected_skipped": 1,
+    "additional_async": 52,
+    "evidence": "observable-tool-results.json lines317,443,447"
+  },
+  "frozen_replay": {
+    "regression": {
+      "passed": 84,
+      "failed": 0
+    },
+    "independent": {
+      "passed": 36,
+      "failed": 6,
+      "distinct_root_causes": 1
+    }
+  },
+  "demo_exit_code": 0
+}

@@ -1,0 +1,114 @@
+..........................FF..........FFFF                               [100%]
+================================== FAILURES ===================================
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-sync] _
+
+mode = 'sync', attack_url = 'http://app.site.test/'
+attack = 'sid=evil; Path=/private; Path=/safe'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+        result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+>       assert result[-1][1]=='sid=good'
+E       AssertionError: assert 'sid=evil' == 'sid=good'
+E         
+E         - sid=good
+E         + sid=evil
+
+..\test_contract.py:56: AssertionError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/'
+attack = 'sid=evil; Path=/private; Path=/safe'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+        result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+>       assert result[-1][1]=='sid=good'
+E       AssertionError: assert 'sid=evil' == 'sid=good'
+E         
+E         - sid=good
+E         + sid=evil
+
+..\test_contract.py:56: AssertionError
+___ test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[sync] ____
+
+mode = 'sync'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path(mode):
+        result=exchange(mode,[{'url':'https://site.test/','set':['__Host-id=bad; Secure; Path=/private; Path=/']},
+            {'url':'https://site.test/private'}])
+>       assert result[-1][1]==''
+E       AssertionError: assert '__Host-id=bad' == ''
+E         
+E         + __Host-id=bad
+
+..\test_contract.py:112: AssertionError
+___ test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[async] ___
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path(mode):
+        result=exchange(mode,[{'url':'https://site.test/','set':['__Host-id=bad; Secure; Path=/private; Path=/']},
+            {'url':'https://site.test/private'}])
+>       assert result[-1][1]==''
+E       AssertionError: assert '__Host-id=bad' == ''
+E         
+E         + __Host-id=bad
+
+..\test_contract.py:112: AssertionError
+____ test_public_suffix_cannot_be_hidden_by_second_domain_attribute[sync] _____
+
+mode = 'sync'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_public_suffix_cannot_be_hidden_by_second_domain_attribute(mode):
+        result=exchange(mode,[{'url':'https://attacker.co.test/','set':['foreign=bad; Domain=co.test; Domain=attacker.co.test; Path=/']},
+            {'url':'https://victim.co.test/'}])
+>       assert result[-1][1]==''
+E       AssertionError: assert 'foreign=bad' == ''
+E         
+E         + foreign=bad
+
+..\test_contract.py:118: AssertionError
+____ test_public_suffix_cannot_be_hidden_by_second_domain_attribute[async] ____
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_public_suffix_cannot_be_hidden_by_second_domain_attribute(mode):
+        result=exchange(mode,[{'url':'https://attacker.co.test/','set':['foreign=bad; Domain=co.test; Domain=attacker.co.test; Path=/']},
+            {'url':'https://victim.co.test/'}])
+>       assert result[-1][1]==''
+E       AssertionError: assert 'foreign=bad' == ''
+E         
+E         + foreign=bad
+
+..\test_contract.py:118: AssertionError
+=========================== short test summary info ===========================
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-sync]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-async]
+FAILED ..\test_contract.py::test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[sync]
+FAILED ..\test_contract.py::test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[async]
+FAILED ..\test_contract.py::test_public_suffix_cannot_be_hidden_by_second_domain_attribute[sync]
+FAILED ..\test_contract.py::test_public_suffix_cannot_be_hidden_by_second_domain_attribute[async]
+6 failed, 36 passed in 2.78s

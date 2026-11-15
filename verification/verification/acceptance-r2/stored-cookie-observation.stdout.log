@@ -1,0 +1,14 @@
+[
+  {
+    "name": "__Host-id",
+    "domain": "attacker.co.test",
+    "path": "/private",
+    "secure": true
+  },
+  {
+    "name": "foreign",
+    "domain": ".co.test",
+    "path": "/",
+    "secure": false
+  }
+]

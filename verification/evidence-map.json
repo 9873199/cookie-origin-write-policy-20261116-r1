@@ -1,0 +1,48 @@
+{
+  "requirements": [
+    {
+      "requirement": "actual response origin and per-hop policy, sync/async clients",
+      "source": "httpx/_models.py:Cookies.extract_cookies; _client.py",
+      "evidence": "independent actual redirect and forged Host cases, cookie-regression",
+      "result": "CONFIRMED"
+    },
+    {
+      "requirement": "HTTP cannot overwrite/delete overlapping Secure cookie",
+      "source": "httpx/_cookie_policy.py:_parse_set_cookie,_evaluate",
+      "evidence": "ordinary cases pass; repeated Path yields actual sent sid=evil in both clients",
+      "result": "PARTIAL_SECURITY_BYPASS"
+    },
+    {
+      "requirement": "Host prefix root path and public suffix rule match actual stored cookie",
+      "source": "_parse_set_cookie last-attribute assignment; raw header returned to CookieJar",
+      "evidence": "two repeated Path failures, two repeated Domain failures; stored-cookie-observation.json",
+      "result": "FAILED"
+    },
+    {
+      "requirement": "default compatibility, explicit manual setting and per-client policy",
+      "source": "Cookies.policy; BaseClient._cookie_policy",
+      "evidence": "independent default/manual checks plus shared-jar model regression",
+      "result": "CONFIRMED"
+    }
+  ],
+  "process_evidence": {
+    "native_policy_write": 133,
+    "native_client_tests_write": 248,
+    "native_model_tests_write": 306,
+    "native_tests_30_output": 317,
+    "selected_final_regression_output": 443,
+    "async_regression_output": 447,
+    "missed_case": "New tests/client/test_cookie_policy.py and tests/models/test_cookie_policy.py contain no repeated Domain/Path scenario; parser inspects last attribute then passes original header to stdlib."
+  },
+  "not_deducted": [
+    "reviewer r1 socket/server selection errors",
+    "native pre-existing dependency/CLI/test-environment failures",
+    "lack of explicit Path when actual default root path satisfies the prompt"
+  ],
+  "independent_checks_are_not_native_model_tests": true,
+  "time": "2026-11-16T03:13:25+08:00",
+  "uid": 11565,
+  "frozen_commit": "c56d2a77355d3c12cbf27f9e3cf05e103f2375e1",
+  "native_trace_sha256": "dff811afe54c3c3be9f3fff6079b3f6300c8be12b8bccd09052cfff643809bde",
+  "no_model_source_changes_after_freeze": true
+}

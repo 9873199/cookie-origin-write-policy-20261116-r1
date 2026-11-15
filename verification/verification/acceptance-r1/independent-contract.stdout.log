@@ -1,0 +1,1418 @@
+.F.F.F.F.F.F.F.F.F.F.F.F.FFF.F.F.F.F..FFFF                               [100%]
+================================== FAILURES ===================================
+_ test_prefix_receiving_then_actual_sent_cookie[__Secure-id=ok; Secure; Path=/-https-True-async] _
+
+mode = 'async', header = '__Secure-id=ok; Secure; Path=/', scheme = 'https'
+allowed = True
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Secure-id=bad; Path=/-https-False-async] _
+
+mode = 'async', header = '__Secure-id=bad; Path=/', scheme = 'https'
+allowed = False
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Secure-id=bad; Secure; Path=/-http-False-async] _
+
+mode = 'async', header = '__Secure-id=bad; Secure; Path=/', scheme = 'http'
+allowed = False
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Host-id=ok; Secure; Path=/-https-True-async] _
+
+mode = 'async', header = '__Host-id=ok; Secure; Path=/', scheme = 'https'
+allowed = True
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/; Domain=-https-False-async] _
+
+mode = 'async', header = '__Host-id=bad; Secure; Path=/; Domain='
+scheme = 'https', allowed = False
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/; Domain=site.test-https-False-async] _
+
+mode = 'async', header = '__Host-id=bad; Secure; Path=/; Domain=site.test'
+scheme = 'https', allowed = False
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/x-https-False-async] _
+
+mode = 'async', header = '__Host-id=bad; Secure; Path=/x', scheme = 'https'
+allowed = False
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Path=/-https-False-async] _
+
+mode = 'async', header = '__Host-id=bad; Path=/', scheme = 'https'
+allowed = False
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('header,scheme,allowed',[
+        ('__Secure-id=ok; Secure; Path=/','https',True),
+        ('__Secure-id=bad; Path=/','https',False),
+        ('__Secure-id=bad; Secure; Path=/','http',False),
+        ('__Host-id=ok; Secure; Path=/','https',True),
+        ('__Host-id=bad; Secure; Path=/; Domain=','https',False),
+        ('__Host-id=bad; Secure; Path=/; Domain=site.test','https',False),
+        ('__Host-id=bad; Secure; Path=/x','https',False),
+        ('__Host-id=bad; Path=/','https',False),
+    ])
+    def test_prefix_receiving_then_actual_sent_cookie(mode,header,scheme,allowed):
+>       result=exchange(mode,[{'url':scheme+'://site.test/','set':[header]},{'url':'https://site.test/'}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\test_contract.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/'
+attack = 'sid=evil; Path=/'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+>       result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+
+..\test_contract.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/private/x-sid=evil; Path=/private/x-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/private/x'
+attack = 'sid=evil; Path=/private/x'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+>       result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+
+..\test_contract.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Domain=site.test; Path=/-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/'
+attack = 'sid=evil; Domain=site.test; Path=/'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+>       result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+
+..\test_contract.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=gone; Path=/private; Max-Age=0-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/'
+attack = 'sid=gone; Path=/private; Max-Age=0'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+>       result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+
+..\test_contract.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/'
+attack = 'sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+>       result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+
+..\test_contract.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-sync] _
+
+mode = 'sync', attack_url = 'http://app.site.test/'
+attack = 'sid=evil; Path=/private; Path=/safe'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+        result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+>       assert result[-1][1]=='sid=good'
+E       AssertionError: assert 'sid=evil' == 'sid=good'
+E         
+E         - sid=good
+E         + sid=evil
+
+..\test_contract.py:56: AssertionError
+_ test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-async] _
+
+mode = 'async', attack_url = 'http://app.site.test/'
+attack = 'sid=evil; Path=/private; Path=/safe'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    @pytest.mark.parametrize('attack_url,attack',[
+        ('http://app.site.test/','sid=evil; Path=/'),
+        ('http://app.site.test/private/x','sid=evil; Path=/private/x'),
+        ('http://app.site.test/','sid=evil; Domain=site.test; Path=/'),
+        ('http://app.site.test/','sid=gone; Path=/private; Max-Age=0'),
+        ('http://app.site.test/','sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'),
+        ('http://app.site.test/','sid=evil; Path=/private; Path=/safe'),
+    ])
+    def test_insecure_overlap_cannot_write_or_delete_secure(mode,attack_url,attack):
+>       result=exchange(mode,[{'url':'https://app.site.test/private','set':['sid=good; Secure; Path=/private']},
+            {'url':attack_url,'set':[attack]},{'url':'https://app.site.test/private/x'}])
+
+..\test_contract.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+________ test_domain_label_boundary_and_public_suffix_rejected[async] _________
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_domain_label_boundary_and_public_suffix_rejected(mode):
+>       result=exchange(mode,[{'url':'https://notsite.test/','set':['foreign=bad; Domain=site.test; Path=/','suffix=bad; Domain=test; Path=/']},
+            {'url':'https://notsite.test/'}])
+
+..\test_contract.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+_______________ test_https_update_and_expiry_still_work[async] ________________
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_https_update_and_expiry_still_work(mode):
+>       result=exchange(mode,[{'url':'https://site.test/','set':['sid=one; Secure; Path=/']},
+            {'url':'https://site.test/','set':['sid=two; Secure; Path=/']},
+            {'url':'https://site.test/','set':['sid=gone; Secure; Path=/; Max-Age=0']},
+            {'url':'https://site.test/'}])
+
+..\test_contract.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+________ test_forged_host_header_cannot_supply_security_origin[async] _________
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_forged_host_header_cannot_supply_security_origin(mode):
+>       result=exchange(mode,[{'url':'http://site.test/','headers':{'Host':'secure.site.test'},'set':['__Secure-id=bad; Secure; Path=/']},
+            {'url':'https://site.test/'}])
+
+..\test_contract.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+________________ test_actual_redirect_hops_are_checked[async] _________________
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_actual_redirect_hops_are_checked(mode):
+        sent=[]
+        def respond(request):
+            sent.append((str(request.url),request.headers.get('cookie','')))
+            if request.url.path=='/start':return httpx.Response(302,headers=[('location','http://site.test/attack'),('set-cookie','sid=good; Secure; Path=/')])
+            if request.url.path=='/attack':return httpx.Response(302,headers=[('location','https://site.test/final'),('set-cookie','sid=evil; Path=/')])
+            return httpx.Response(200)
+        options={'transport':httpx.MockTransport(respond),'follow_redirects':True,'cookie_policy':httpx.SecureCookiePolicy()}
+        if mode=='sync':
+            with httpx.Client(**options) as c: c.get('https://site.test/start')
+        else:
+            async def execute():
+                async with httpx.AsyncClient(**options) as c: await c.get('https://site.test/start')
+>           asyncio.run(execute())
+
+..\test_contract.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+___ test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[sync] ____
+
+mode = 'sync'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path(mode):
+        result=exchange(mode,[{'url':'https://site.test/','set':['__Host-id=bad; Secure; Path=/private; Path=/']},
+            {'url':'https://site.test/private'}])
+>       assert result[-1][1]==''
+E       AssertionError: assert '__Host-id=bad' == ''
+E         
+E         + __Host-id=bad
+
+..\test_contract.py:112: AssertionError
+___ test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[async] ___
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path(mode):
+>       result=exchange(mode,[{'url':'https://site.test/','set':['__Host-id=bad; Secure; Path=/private; Path=/']},
+            {'url':'https://site.test/private'}])
+
+..\test_contract.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+____ test_public_suffix_cannot_be_hidden_by_second_domain_attribute[sync] _____
+
+mode = 'sync'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_public_suffix_cannot_be_hidden_by_second_domain_attribute(mode):
+        result=exchange(mode,[{'url':'https://attacker.co.test/','set':['foreign=bad; Domain=co.test; Domain=attacker.co.test; Path=/']},
+            {'url':'https://victim.co.test/'}])
+>       assert result[-1][1]==''
+E       AssertionError: assert 'foreign=bad' == ''
+E         
+E         + foreign=bad
+
+..\test_contract.py:118: AssertionError
+____ test_public_suffix_cannot_be_hidden_by_second_domain_attribute[async] ____
+
+mode = 'async'
+
+    @pytest.mark.parametrize('mode',['sync','async'])
+    def test_public_suffix_cannot_be_hidden_by_second_domain_attribute(mode):
+>       result=exchange(mode,[{'url':'https://attacker.co.test/','set':['foreign=bad; Domain=co.test; Domain=attacker.co.test; Path=/']},
+            {'url':'https://victim.co.test/'}])
+
+..\test_contract.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\test_contract.py:25: in exchange
+    asyncio.run(execute())
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:203: in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:59: in __enter__
+    self._lazy_init()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py:146: in _lazy_init
+    self._loop = events.new_event_loop()
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:844: in new_event_loop
+    return _get_event_loop_policy().new_event_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py:732: in new_event_loop
+    return self._loop_factory()
+           ^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py:316: in __init__
+    super().__init__(proactor)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:639: in __init__
+    self._make_self_pipe()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py:786: in _make_self_pipe
+    self._ssock, self._csock = socket.socketpair()
+                               ^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\socket.py:619: in _fallback_socketpair
+    lsock = socket(family, type, proto)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'pytest_socket.disable_socket.<locals>.GuardedSocket'>
+family = <AddressFamily.AF_INET: 2>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, fileno = None
+
+    def __new__(
+        cls,
+        family: socket.AddressFamily | int = -1,
+        type: socket.SocketKind | int = -1,
+        proto: int = -1,
+        fileno: int | None = None,
+    ) -> GuardedSocket:
+        if _is_unix_socket(family) and allow_unix_socket:
+            return super().__new__(cls, family, type, proto, fileno)  # type: ignore[call-arg] # noqa E501
+    
+>       raise SocketBlockedError()
+E       pytest_socket.SocketBlockedError: A test tried to use socket.socket.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: SocketBlockedError
+============================== warnings summary ===============================
+evaluation/uf-20261116-new20-cookie-origin-write-policy/verification/acceptance-r1/test_contract.py: 20 warnings
+  D:\hc\userFeedback\cache\security-new20-20261116-r1\runtime-tasks\httpx\env\Lib\site-packages\pytest_socket\__init__.py:138: UserWarning: A test tried to use socket.socket.
+    raise SocketBlockedError()
+
+evaluation/uf-20261116-new20-cookie-origin-write-policy/verification/acceptance-r1/test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/; Domain=site.test-https-False-async]
+evaluation/uf-20261116-new20-cookie-origin-write-policy/verification/acceptance-r1/test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-async]
+evaluation/uf-20261116-new20-cookie-origin-write-policy/verification/acceptance-r1/test_contract.py::test_forged_host_header_cannot_supply_security_origin[async]
+  D:\hc\userFeedback\cache\security-new20-20261116-r1\runtime-tasks\httpx\env\Lib\site-packages\_pytest\unraisableexception.py:63: PytestUnraisableExceptionWarning: Exception ignored while calling deallocator <function BaseEventLoop.__del__ at 0x00000242C65F43B0>: None
+  
+  Traceback (most recent call last):
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 760, in __del__
+      self.close()
+      ~~~~~~~~~~^^
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 696, in close
+      self._close_self_pipe()
+      ~~~~~~~~~~~~~~~~~~~~~^^
+    File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 778, in _close_self_pipe
+      self._ssock.close()
+      ^^^^^^^^^^^
+  AttributeError: 'ProactorEventLoop' object has no attribute '_ssock'
+  
+  
+    warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Secure-id=ok; Secure; Path=/-https-True-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Secure-id=bad; Path=/-https-False-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Secure-id=bad; Secure; Path=/-http-False-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Host-id=ok; Secure; Path=/-https-True-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/; Domain=-https-False-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/; Domain=site.test-https-False-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Secure; Path=/x-https-False-async]
+FAILED ..\test_contract.py::test_prefix_receiving_then_actual_sent_cookie[__Host-id=bad; Path=/-https-False-async]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/-async]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/private/x-sid=evil; Path=/private/x-async]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Domain=site.test; Path=/-async]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=gone; Path=/private; Max-Age=0-async]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=gone; Domain=site.test; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT-async]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-sync]
+FAILED ..\test_contract.py::test_insecure_overlap_cannot_write_or_delete_secure[http://app.site.test/-sid=evil; Path=/private; Path=/safe-async]
+FAILED ..\test_contract.py::test_domain_label_boundary_and_public_suffix_rejected[async]
+FAILED ..\test_contract.py::test_https_update_and_expiry_still_work[async] - ...
+FAILED ..\test_contract.py::test_forged_host_header_cannot_supply_security_origin[async]
+FAILED ..\test_contract.py::test_actual_redirect_hops_are_checked[async] - py...
+FAILED ..\test_contract.py::test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[sync]
+FAILED ..\test_contract.py::test_host_prefix_cannot_be_stored_at_non_root_via_duplicate_path[async]
+FAILED ..\test_contract.py::test_public_suffix_cannot_be_hidden_by_second_domain_attribute[sync]
+FAILED ..\test_contract.py::test_public_suffix_cannot_be_hidden_by_second_domain_attribute[async]
+========================== warnings summary (final) ===========================
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\_pytest\assertion\rewrite.py:1173
+  D:\hc\userFeedback\cache\security-new20-20261116-r1\runtime-tasks\httpx\env\Lib\site-packages\_pytest\assertion\rewrite.py:1173: RuntimeWarning: coroutine 'exchange.<locals>.execute' was never awaited
+    ast.Tuple(load_names, ast.Load()),
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\ast.py:46
+  C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\ast.py:46: RuntimeWarning: coroutine 'exchange.<locals>.execute' was never awaited
+    return compile(source, filename, mode, flags,
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+..\..\..\..\..\runtime-tasks\httpx\env\Lib\site-packages\_pytest\assertion\rewrite.py:796
+  D:\hc\userFeedback\cache\security-new20-20261116-r1\runtime-tasks\httpx\env\Lib\site-packages\_pytest\assertion\rewrite.py:796: RuntimeWarning: coroutine 'test_actual_redirect_hops_are_checked.<locals>.execute' was never awaited
+    py_name = ast.Name("@pytest_ar", ast.Load())
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 failed, 19 passed, 26 warnings in 8.91s

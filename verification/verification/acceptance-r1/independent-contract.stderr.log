@@ -1,0 +1,23 @@
+D:\hc\userFeedback\cache\security-new20-20261116-r1\runtime-tasks\httpx\env\Lib\site-packages\_pytest\unraisableexception.py:63: PytestUnraisableExceptionWarning: Exception ignored while calling deallocator <function BaseEventLoop.__del__ at 0x00000242C65F43B0>: None
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 760, in __del__
+    self.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 696, in close
+    self._close_self_pipe()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 778, in _close_self_pipe
+    self._ssock.close()
+    ^^^^^^^^^^^
+AttributeError: 'ProactorEventLoop' object has no attribute '_ssock'
+
+
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+Exception ignored while calling deallocator <function BaseEventLoop.__del__ at 0x00000242C65F43B0>:
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 760, in __del__
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 696, in close
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 778, in _close_self_pipe
+AttributeError: 'ProactorEventLoop' object has no attribute '_ssock'
+<sys>:0: RuntimeWarning: coroutine 'exchange.<locals>.execute' was never awaited

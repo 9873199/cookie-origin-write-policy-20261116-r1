@@ -1,0 +1,26 @@
+{
+  "time": "2026-11-16T03:09:43+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\runtime-tasks\\httpx\\env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/client/test_cookie_policy.py",
+    "tests/models/test_cookie_policy.py",
+    "tests/client/test_cookies.py",
+    "tests/models/test_cookies.py",
+    "tests/client/test_redirects.py",
+    "tests/test_exported_members.py",
+    "tests/client/test_properties.py",
+    "-o",
+    "addopts=",
+    "-p",
+    "no:cacheprovider",
+    "--allow-hosts=127.0.0.1,::1"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\replay-source",
+  "exit_code": 0,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\cookie-regression.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\cookie-regression.stderr.log"
+}

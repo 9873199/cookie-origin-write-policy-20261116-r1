@@ -1,0 +1,12 @@
+{
+  "time": "2026-11-16T03:10:37+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\runtime-tasks\\httpx\\env\\Scripts\\python.exe",
+    "-B",
+    "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\observe.py"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2",
+  "exit_code": 0,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\stored-cookie-observation.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\evaluation\\uf-20261116-new20-cookie-origin-write-policy\\verification\\acceptance-r2\\stored-cookie-observation.stderr.log"
+}

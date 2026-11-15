@@ -1,0 +1,291 @@
+{
+  "source_is_human": false,
+  "events": [
+    {
+      "command_id": "cookies",
+      "event": 0,
+      "key": "p",
+      "requested_delay_seconds": 0.46748535546576225,
+      "actual_at_seconds": 3.474884,
+      "buffer": "p",
+      "kind": "word_boundary",
+      "phase": "initial",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 1,
+      "key": "y",
+      "requested_delay_seconds": 0.23975936527422104,
+      "actual_at_seconds": 3.715204,
+      "buffer": "py",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 2,
+      "key": "c",
+      "requested_delay_seconds": 0.12009902058131126,
+      "actual_at_seconds": 3.835855,
+      "buffer": "pyc",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 3,
+      "key": "h",
+      "requested_delay_seconds": 0.16365429680468807,
+      "actual_at_seconds": 4.000716,
+      "buffer": "pych",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 4,
+      "key": "o",
+      "requested_delay_seconds": 0.19249943121058127,
+      "actual_at_seconds": 4.193614,
+      "buffer": "pycho",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 5,
+      "key": "n",
+      "requested_delay_seconds": 0.34083462476504833,
+      "actual_at_seconds": 4.534895,
+      "buffer": "pychon",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 6,
+      "key": "BACKSPACE",
+      "requested_delay_seconds": 0.44316320766278267,
+      "actual_at_seconds": 4.978825,
+      "buffer": "pycho",
+      "kind": "word_boundary",
+      "phase": "repair_erase",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 7,
+      "key": "BACKSPACE",
+      "requested_delay_seconds": 0.17010465459270052,
+      "actual_at_seconds": 5.149324,
+      "buffer": "pych",
+      "kind": "erase",
+      "phase": "repair_erase",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 8,
+      "key": "BACKSPACE",
+      "requested_delay_seconds": 0.1556745306724121,
+      "actual_at_seconds": 5.305589,
+      "buffer": "pyc",
+      "kind": "erase",
+      "phase": "repair_erase",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 9,
+      "key": "BACKSPACE",
+      "requested_delay_seconds": 0.212236272677312,
+      "actual_at_seconds": 5.51839,
+      "buffer": "py",
+      "kind": "erase",
+      "phase": "repair_erase",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 10,
+      "key": "BACKSPACE",
+      "requested_delay_seconds": 0.21217273836057154,
+      "actual_at_seconds": 5.73126,
+      "buffer": "p",
+      "kind": "erase",
+      "phase": "repair_erase",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 11,
+      "key": "BACKSPACE",
+      "requested_delay_seconds": 0.34669980343767537,
+      "actual_at_seconds": 6.078717,
+      "buffer": "",
+      "kind": "erase",
+      "phase": "repair_erase",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 12,
+      "key": "p",
+      "requested_delay_seconds": 0.5021745067283516,
+      "actual_at_seconds": 6.581569,
+      "buffer": "p",
+      "kind": "word_boundary",
+      "phase": "repair_retype",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 13,
+      "key": "y",
+      "requested_delay_seconds": 0.1565439982127474,
+      "actual_at_seconds": 6.73901,
+      "buffer": "py",
+      "kind": "letter",
+      "phase": "repair_retype",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 14,
+      "key": "t",
+      "requested_delay_seconds": 0.24144970088166717,
+      "actual_at_seconds": 6.981032,
+      "buffer": "pyt",
+      "kind": "letter",
+      "phase": "repair_retype",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 15,
+      "key": "h",
+      "requested_delay_seconds": 0.13654947350310262,
+      "actual_at_seconds": 7.118144,
+      "buffer": "pyth",
+      "kind": "letter",
+      "phase": "repair_retype",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 16,
+      "key": "o",
+      "requested_delay_seconds": 0.30172800106303677,
+      "actual_at_seconds": 7.420251,
+      "buffer": "pytho",
+      "kind": "letter",
+      "phase": "repair_retype",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 17,
+      "key": "n",
+      "requested_delay_seconds": 0.34567445414281517,
+      "actual_at_seconds": 7.766633,
+      "buffer": "python",
+      "kind": "letter",
+      "phase": "repair_retype",
+      "word_index": 0
+    },
+    {
+      "command_id": "cookies",
+      "event": 18,
+      "key": " ",
+      "requested_delay_seconds": 0,
+      "actual_at_seconds": 7.766866,
+      "buffer": "python ",
+      "kind": "separator",
+      "phase": "separator",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 19,
+      "key": "d",
+      "requested_delay_seconds": 0.5332103396465263,
+      "actual_at_seconds": 8.300908,
+      "buffer": "python d",
+      "kind": "word_boundary",
+      "phase": "initial",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 20,
+      "key": "e",
+      "requested_delay_seconds": 0.25555380804152983,
+      "actual_at_seconds": 8.55741,
+      "buffer": "python de",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 21,
+      "key": "m",
+      "requested_delay_seconds": 0.24194502643250257,
+      "actual_at_seconds": 8.80007,
+      "buffer": "python dem",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 22,
+      "key": "o",
+      "requested_delay_seconds": 0.3430368806504147,
+      "actual_at_seconds": 9.143841,
+      "buffer": "python demo",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 23,
+      "key": ".",
+      "requested_delay_seconds": 0.456281647941524,
+      "actual_at_seconds": 9.600834,
+      "buffer": "python demo.",
+      "kind": "special",
+      "phase": "initial",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 24,
+      "key": "p",
+      "requested_delay_seconds": 0.4910480021158247,
+      "actual_at_seconds": 10.092615,
+      "buffer": "python demo.p",
+      "kind": "word_boundary",
+      "phase": "initial",
+      "word_index": 1
+    },
+    {
+      "command_id": "cookies",
+      "event": 25,
+      "key": "y",
+      "requested_delay_seconds": 0.21111189013944198,
+      "actual_at_seconds": 10.304109,
+      "buffer": "python demo.py",
+      "kind": "letter",
+      "phase": "initial",
+      "word_index": 1
+    }
+  ]
+}

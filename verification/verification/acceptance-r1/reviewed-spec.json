@@ -1,0 +1,62 @@
+{
+  "uid": 11565,
+  "run_id": "uf-20261116-new20-cookie-origin-write-policy",
+  "reviewed": true,
+  "reviewer": "Codex primary agent, AI-assisted",
+  "frozen_trace_sha256": "dff811afe54c3c3be9f3fff6079b3f6300c8be12b8bccd09052cfff643809bde",
+  "revision": "acceptance-r1",
+  "product_modules": [
+    "httpx",
+    "httpx._cookie_policy"
+  ],
+  "support_files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\security-new20-20261116-r1\\review-design\\11565\\test_contract.py",
+      "path": "test_contract.py",
+      "sha256": "b4eebace395a40c542a866108163d881e8420314af552a345a7584c326476a2a"
+    }
+  ],
+  "commands": [
+    {
+      "name": "cookie-regression",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/client/test_cookie_policy.py",
+        "tests/models/test_cookie_policy.py",
+        "tests/client/test_cookies.py",
+        "tests/models/test_cookies.py",
+        "tests/client/test_redirects.py",
+        "tests/test_exported_members.py",
+        "tests/test_api.py",
+        "tests/client/test_properties.py",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--disable-socket"
+      ],
+      "timeout": 300
+    },
+    {
+      "name": "independent-contract",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "{verification}/test_contract.py",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--disable-socket"
+      ],
+      "timeout": 300
+    }
+  ]
+}
