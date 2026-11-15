@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 * Expose `FunctionAuth` from the public API. (#3699)
+* Add `httpx.SecureCookiePolicy`, an optional browser-style security policy for cookies received in responses, enabled with `Client(cookie_policy=...)`. It enforces the `__Secure-`/`__Host-` cookie name prefixes, rejects `Secure` cookies set over `http://`, and prevents insecure responses from overwriting or deleting existing `Secure` cookies.
 
 ## 0.28.1 (6th December, 2024)
 

@@ -4,6 +4,7 @@ from ._auth import *
 from ._client import *
 from ._config import *
 from ._content import *
+from ._cookie_policy import *
 from ._exceptions import *
 from ._models import *
 from ._status_codes import *
@@ -82,6 +83,7 @@ __all__ = [
     "RequestNotRead",
     "Response",
     "ResponseNotRead",
+    "SecureCookiePolicy",
     "stream",
     "StreamClosed",
     "StreamConsumed",

@@ -150,7 +150,7 @@ what gets sent over the wire.*
 >>> cookies.set("name", "value", domain="example.org")
 ```
 
-* `def __init__(cookies: [dict, Cookies, CookieJar])`
+* `def __init__(cookies: [dict, Cookies, CookieJar], [policy])`
 * `.jar` - **CookieJar**
 * `def extract_cookies(response)`
 * `def set_cookie_header(request)`
@@ -159,6 +159,24 @@ what gets sent over the wire.*
 * `def delete(name, [domain], [path])`
 * `def clear([domain], [path])`
 * *Standard mutable mapping interface*
+
+## `SecureCookiePolicy`
+
+*An optional browser-style security policy for cookies received in responses.*
+
+```pycon
+>>> policy = SecureCookiePolicy()
+>>> client = Client(cookie_policy=policy)
+```
+
+The policy is applied to each `Set-Cookie` header of a response, based on
+the URL of the actual response. It enforces the `__Secure-` and `__Host-`
+cookie name prefixes, rejects `Secure` cookies set over `http://`, and
+prevents insecure responses from writing or deleting cookies that overlap
+an existing `Secure` cookie. An optional `is_public_suffix` callable may
+be provided to also reject cookies set on public suffixes.
+
+* `def __init__([is_public_suffix])`
 
 ## `Proxy`
 

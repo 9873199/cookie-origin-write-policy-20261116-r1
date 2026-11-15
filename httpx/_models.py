@@ -11,6 +11,7 @@ from collections.abc import Mapping
 from http.cookiejar import Cookie, CookieJar
 
 from ._content import ByteStream, UnattachedStream, encode_request, encode_response
+from ._cookie_policy import SecureCookiePolicy
 from ._decoders import (
     SUPPORTED_DECODERS,
     ByteChunker,
@@ -1081,7 +1082,16 @@ class Cookies(typing.MutableMapping[str, str]):
     HTTP Cookies, as a mutable mapping.
     """
 
-    def __init__(self, cookies: CookieTypes | None = None) -> None:
+    def __init__(
+        self,
+        cookies: CookieTypes | None = None,
+        policy: SecureCookiePolicy | None = None,
+    ) -> None:
+        # The policy only applies to cookies received in responses.
+        # It is held on the `Cookies` instance rather than on the
+        # underlying `CookieJar`, so that a jar shared between clients
+        # never leaks a policy from one client to another.
+        self.policy = policy
         if cookies is None or isinstance(cookies, dict):
             self.jar = CookieJar()
             if isinstance(cookies, dict):
@@ -1102,7 +1112,18 @@ class Cookies(typing.MutableMapping[str, str]):
         """
         Loads any cookies based on the response `Set-Cookie` headers.
         """
-        urllib_response = self._CookieCompatResponse(response)
+        if self.policy is None:
+            urllib_response = self._CookieCompatResponse(response)
+        else:
+            # The policy decides, per `Set-Cookie` header, whether the
+            # write may reach the jar, based on the URL of the actual
+            # response. Rejected headers are dropped before the jar
+            # sees them, so existing cookies are never affected.
+            url = response.request.url
+            allowed = self.policy.filter_set_cookie_headers(
+                response.headers.get_list("set-cookie"), url, self.jar
+            )
+            urllib_response = self._CookieCompatResponse(response, set_cookies=allowed)
         urllib_request = self._CookieCompatRequest(response.request)
 
         self.jar.extract_cookies(urllib_response, urllib_request)  # type: ignore
@@ -1264,8 +1285,14 @@ class Cookies(typing.MutableMapping[str, str]):
         for use with `CookieJar` operations.
         """
 
-        def __init__(self, response: Response) -> None:
+        def __init__(
+            self, response: Response, set_cookies: list[str] | None = None
+        ) -> None:
             self.response = response
+            # When a cookie policy is in effect, `set_cookies` holds the
+            # `Set-Cookie` headers that survived filtering, replacing any
+            # `Set-Cookie` headers on the response itself.
+            self.set_cookies = set_cookies
 
         def info(self) -> email.message.Message:
             info = email.message.Message()
@@ -1273,5 +1300,9 @@ class Cookies(typing.MutableMapping[str, str]):
                 # Note that setting `info[key]` here is an "append" operation,
                 # not a "replace" operation.
                 # https://docs.python.org/3/library/email.compat32-message.html#email.message.Message.__setitem__
-                info[key] = value
+                if self.set_cookies is None or key.lower() != "set-cookie":
+                    info[key] = value
+            if self.set_cookies is not None:
+                for value in self.set_cookies:
+                    info["Set-Cookie"] = value
             return info

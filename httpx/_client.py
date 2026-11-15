@@ -19,6 +19,7 @@ from ._config import (
     Proxy,
     Timeout,
 )
+from ._cookie_policy import SecureCookiePolicy
 from ._decoders import SUPPORTED_DECODERS
 from ._exceptions import (
     InvalidURL,
@@ -193,6 +194,7 @@ class BaseClient:
         params: QueryParamTypes | None = None,
         headers: HeaderTypes | None = None,
         cookies: CookieTypes | None = None,
+        cookie_policy: SecureCookiePolicy | None = None,
         timeout: TimeoutTypes = DEFAULT_TIMEOUT_CONFIG,
         follow_redirects: bool = False,
         max_redirects: int = DEFAULT_MAX_REDIRECTS,
@@ -208,7 +210,8 @@ class BaseClient:
         self._auth = self._build_auth(auth)
         self._params = QueryParams(params)
         self.headers = Headers(headers)
-        self._cookies = Cookies(cookies)
+        self._cookie_policy = cookie_policy
+        self._cookies = Cookies(cookies, policy=cookie_policy)
         self._timeout = Timeout(timeout)
         self.follow_redirects = follow_redirects
         self.max_redirects = max_redirects
@@ -324,7 +327,9 @@ class BaseClient:
 
     @cookies.setter
     def cookies(self, cookies: CookieTypes) -> None:
-        self._cookies = Cookies(cookies)
+        # Replacing the cookie jar keeps the client's cookie policy,
+        # which applies to cookies received in responses.
+        self._cookies = Cookies(cookies, policy=self._cookie_policy)
 
     @property
     def params(self) -> QueryParams:
@@ -614,6 +619,9 @@ class Client(BaseClient):
     sending requests.
     * **cookies** - *(optional)* Dictionary of Cookie items to include when
     sending requests.
+    * **cookie_policy** - *(optional)* A policy to apply to cookies received
+    in responses, such as `httpx.SecureCookiePolicy()`. Defaults to `None`,
+    which applies no additional policy.
     * **verify** - *(optional)* Either `True` to use an SSL context with the
     default CA bundle, `False` to disable verification, or an instance of
     `ssl.SSLContext` to use a custom context.
@@ -643,6 +651,7 @@ class Client(BaseClient):
         params: QueryParamTypes | None = None,
         headers: HeaderTypes | None = None,
         cookies: CookieTypes | None = None,
+        cookie_policy: SecureCookiePolicy | None = None,
         verify: ssl.SSLContext | str | bool = True,
         cert: CertTypes | None = None,
         trust_env: bool = True,
@@ -664,6 +673,7 @@ class Client(BaseClient):
             params=params,
             headers=headers,
             cookies=cookies,
+            cookie_policy=cookie_policy,
             timeout=timeout,
             follow_redirects=follow_redirects,
             max_redirects=max_redirects,
@@ -1328,6 +1338,9 @@ class AsyncClient(BaseClient):
     sending requests.
     * **cookies** - *(optional)* Dictionary of Cookie items to include when
     sending requests.
+    * **cookie_policy** - *(optional)* A policy to apply to cookies received
+    in responses, such as `httpx.SecureCookiePolicy()`. Defaults to `None`,
+    which applies no additional policy.
     * **verify** - *(optional)* Either `True` to use an SSL context with the
     default CA bundle, `False` to disable verification, or an instance of
     `ssl.SSLContext` to use a custom context.
@@ -1357,6 +1370,7 @@ class AsyncClient(BaseClient):
         params: QueryParamTypes | None = None,
         headers: HeaderTypes | None = None,
         cookies: CookieTypes | None = None,
+        cookie_policy: SecureCookiePolicy | None = None,
         verify: ssl.SSLContext | str | bool = True,
         cert: CertTypes | None = None,
         http1: bool = True,
@@ -1378,6 +1392,7 @@ class AsyncClient(BaseClient):
             params=params,
             headers=headers,
             cookies=cookies,
+            cookie_policy=cookie_policy,
             timeout=timeout,
             follow_redirects=follow_redirects,
             max_redirects=max_redirects,
